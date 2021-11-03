@@ -3,6 +3,7 @@ package com.plcoding.cryptocurrencyappyt.data.remote
 import com.plcoding.cryptocurrencyappyt.data.remote.dto.CoinDetailDto
 import com.plcoding.cryptocurrencyappyt.data.remote.dto.CoinDto
 import com.plcoding.cryptocurrencyappyt.data.remote.dto.MarketPriceDto
+import com.plcoding.cryptocurrencyappyt.data.remote.dto.TickerDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -20,5 +21,8 @@ interface CoinPaprikaApi {
     suspend fun getCoinMarketPrice(
         @Path("coinId") coinId: String
     ) : MarketPriceDto
+
+    @GET("v1/tickers")
+    suspend fun getTickers() : List<TickerDto>
 
 }

@@ -4,6 +4,7 @@ import com.plcoding.cryptocurrencyappyt.data.remote.CoinPaprikaApi
 import com.plcoding.cryptocurrencyappyt.data.remote.dto.CoinDetailDto
 import com.plcoding.cryptocurrencyappyt.data.remote.dto.CoinDto
 import com.plcoding.cryptocurrencyappyt.data.remote.dto.MarketPriceDto
+import com.plcoding.cryptocurrencyappyt.data.remote.dto.TickerDto
 import com.plcoding.cryptocurrencyappyt.domain.repository.CoinRepository
 import javax.inject.Inject
 
@@ -20,5 +21,9 @@ class CoinRepositoryImpl @Inject constructor(
 
     override suspend fun getCoinMarketPrice(coinId: String): MarketPriceDto {
         return api.getCoinMarketPrice(coinId)
+    }
+
+    override suspend fun getTickers(): List<TickerDto> {
+        return api.getTickers()
     }
 }
